@@ -1,3 +1,1 @@
-return {
-  -- Core Copilot client
-}
+return {}
