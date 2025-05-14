@@ -1,1 +1,34 @@
-return {}
+return {
+  {
+    -- 1) The Copilot client
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot', -- load on :Copilot
+    build = ':Copilot auth', -- authenticate once after install
+    event = 'InsertEnter', -- or on first Insert
+    opts = {
+      panel = { enabled = false }, -- disable Copilot panel
+      suggestion = {
+        enabled = true, -- inline ghost-text
+        auto_trigger = true,
+        keymap = {
+          accept = '<C-l>', -- accept suggestion
+          next = '<M-]>', -- next suggestion
+          prev = '<M-[>', -- previous suggestion
+        },
+      },
+    },
+    config = function(_, opts)
+      require('copilot').setup(opts)
+    end,
+  },
+  {
+    -- 2) Bridge Copilot into nvim-cmp
+    'zbirenbaum/copilot-cmp',
+    after = { 'copilot.lua', 'nvim-cmp' },
+    config = function()
+      require('copilot_cmp').setup {
+        method = 'getCompletionsCycling',
+      }
+    end,
+  },
+}
