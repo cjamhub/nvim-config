@@ -281,4 +281,13 @@ return {
       require('cmp').setup(opts)
     end,
   },
+
+  -- LSP
+  vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', {}),
+  vim.keymap.set('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', {}),
+  vim.keymap.set('n', 'K', ':lua vim.lsp.buf.hover()<CR>', {}),
+  vim.keymap.set('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', {}),
+  vim.keymap.set('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', {}),
+  vim.keymap.set('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', {}),
+  vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>', {}),
 }
