@@ -4,4 +4,6 @@
 -- See the kickstart.nvim README for more information
 return {
   vim.keymap.set('n', '<leader>e', ':e%:h<CR>'),
+  vim.keymap.set('n', '<C-j>', ':tabnext<CR>'),
+  vim.keymap.set('n', '<C-k>', ':tabprev<CR>'),
 }

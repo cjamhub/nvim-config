@@ -6,7 +6,9 @@ return {
     build = ':Copilot auth', -- authenticate once after install
     event = 'InsertEnter', -- or on first Insert
     opts = {
-      panel = { enabled = false }, -- disable Copilot panel
+      panel = {
+        enabled = false,
+      },
       suggestion = {
         enabled = true, -- inline ghost-text
         auto_trigger = true,
