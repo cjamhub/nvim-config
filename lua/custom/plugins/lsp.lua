@@ -65,12 +65,39 @@ return {
         ruff = {},
         vimls = {},
         yamlls = {},
-        -- solidity = {
-        --   cmd = { 'nomicfoundation-solidity-language-server', '--stdio' },
-        --   filetypes = { 'solidity' },
-        --   root_dir = require("lspconfig.util").find_git_ancestor,
-        --   single_file_support = true,
-        -- }
+        solidity_ls = {
+          cmd = { "solidity-ls", "--stdio" },
+          filetypes = { "solidity" },
+          root_makers = { 
+            "hardhat.config.js", 
+            "hardhat.config.ts",
+            "truffle-config.js", 
+            "remappings.txt",
+            "truffle.js", 
+            ".git",
+            "foundry.toml" 
+          },
+          settings = {
+            solidity = {
+              includePath = {
+                "node_modules",
+              },
+              remappings = {
+                "@openzeppelin=node_modules/@openzeppelin",
+              },
+
+            }
+          }
+        },
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {
+              checkOnSave = {
+                command = 'clippy',
+              },
+            },
+          },
+        },
       },
       -- you can do any additional lsp server setup here
       -- return true if you don"t want this server to be setup with lspconfig
@@ -135,6 +162,13 @@ return {
         handlers = {
           setup,
         },
+        function(server_name)
+          require("lspconfig")[server_name].setup {
+            capabilities = capabilities,
+            settings = servers[server_name].settings,
+            cmd = servers[server_name].cmd,
+          }
+        end,
       }
       -- require("mason-lspconfig").setup_handlers({ setup })
     end,
@@ -290,4 +324,7 @@ return {
   vim.keymap.set('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', {}),
   vim.keymap.set('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', {}),
   vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>', {}),
+
+  -- Debug
+  vim.lsp.set_log_level 'debug',
 }
