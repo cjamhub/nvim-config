@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+
   -- keymaps
   vim.keymap.set('n', '<leader>e', ':e%:h<CR>'),
   vim.keymap.set('n', '<C-j>', ':tabnext<CR>'),
@@ -10,4 +11,5 @@ return {
 
   -- set fuzzy search current buffer
   vim.keymap.set('n', '<C-s>', ':Telescope current_buffer_fuzzy_find<CR>'),
+
 }

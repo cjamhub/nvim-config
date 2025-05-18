@@ -326,5 +326,5 @@ return {
   vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>', {}),
 
   -- Debug
-  vim.lsp.set_log_level 'debug',
+  -- vim.lsp.set_log_level 'debug',
 }
