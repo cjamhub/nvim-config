@@ -8,5 +8,8 @@ return {
     end,
     enabled = true,
   },
-  vim.keymap.set('n', '/', ':HopWord<CR>', { desc = 'Hop word' }),
+  -- vim.keymap.set('n', '/', ':HopWord<CR>', { desc = 'Hop word' }),
+  vim.keymap.set('n', '/', function()
+    require('hop').hint_words()
+  end, { desc = 'Hop word' }),
 }
