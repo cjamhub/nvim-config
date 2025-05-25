@@ -18,6 +18,13 @@ return {
           prev = '<M-[>', -- previous suggestion
         },
       },
+      filetypes = {
+        yaml = true,
+        markdown = true,
+        gitcommit = true,
+        gitrebase = true,
+        help = true,
+      },
     },
     config = function(_, opts)
       require('copilot').setup(opts)

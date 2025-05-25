@@ -4,7 +4,7 @@ return {
     'itmecho/neoterm.nvim',
     opts = {
       clear_on_run = true, -- run clear command before user specified commands
-      position = 'center', -- vertical/horizontal/fullscreen
+      position = 'bottom', -- vertical/horizontal/fullscreen
       noinsert = false, -- disable entering insert mode when opening the neoterm window
       persist_mode = false,
     },

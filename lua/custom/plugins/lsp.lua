@@ -66,28 +66,27 @@ return {
         vimls = {},
         yamlls = {},
         solidity_ls = {
-          cmd = { "solidity-ls", "--stdio" },
-          filetypes = { "solidity" },
-          root_makers = { 
-            "hardhat.config.js", 
-            "hardhat.config.ts",
-            "truffle-config.js", 
-            "remappings.txt",
-            "truffle.js", 
-            ".git",
-            "foundry.toml" 
+          cmd = { 'solidity-ls', '--stdio' },
+          filetypes = { 'solidity' },
+          root_makers = {
+            'hardhat.config.js',
+            'hardhat.config.ts',
+            'truffle-config.js',
+            'remappings.txt',
+            'truffle.js',
+            '.git',
+            'foundry.toml',
           },
           settings = {
             solidity = {
               includePath = {
-                "node_modules",
+                'node_modules',
               },
               remappings = {
-                "@openzeppelin=node_modules/@openzeppelin",
+                '@openzeppelin=node_modules/@openzeppelin',
               },
-
-            }
-          }
+            },
+          },
         },
         rust_analyzer = {
           settings = {
@@ -163,7 +162,7 @@ return {
           setup,
         },
         function(server_name)
-          require("lspconfig")[server_name].setup {
+          require('lspconfig')[server_name].setup {
             capabilities = capabilities,
             settings = servers[server_name].settings,
             cmd = servers[server_name].cmd,

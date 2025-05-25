@@ -9,7 +9,7 @@ return {
     enabled = true,
   },
   -- vim.keymap.set('n', '/', ':HopWord<CR>', { desc = 'Hop word' }),
-  vim.keymap.set('n', '/', function()
+  vim.keymap.set('n', '<leader><leader>', function()
     require('hop').hint_words()
   end, { desc = 'Hop word' }),
 }
